@@ -73,6 +73,7 @@ Vagrant.configure("2") do |config|
       virtualbox.vm.define "docker-awx"
       virtualbox.vm.network "private_network", ip: "10.0.250.252",
           virtualbox__intnet: "NatNetwork"
+      virtualbox.vm.network "forwarded_port", guest:80, host:8080
       config.vm.provider :virtualbox do |v|
         v.gui = false
         v.memory = 4096
